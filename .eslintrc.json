@@ -1,3 +1,71 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:react/jsx-runtime",
+    "plugin:prettier/recommended",
+    "plugin:@dword-design/import-alias/recommended",
+    "next/core-web-vitals",
+    "plugin:storybook/recommended"
+  ],
+  "plugins": ["import-helpers", "unused-imports", "testing-library"],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@", "./src"],
+          ["@root", "."]
+        ],
+        "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"]
+      }
+    }
+  },
+  "rules": {
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "warn",
+    "testing-library/no-dom-import": "off",
+    "react/prop-types": "off",
+    "import/prefer-default-export": "off",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": ["module", "/^@/", ["parent", "sibling", "index"]],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ],
+    "no-console": "warn",
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@dword-design/import-alias/prefer-alias": [
+      "error",
+      {
+        "alias": {
+          "@": "./src/",
+          "@root": "."
+        }
+      }
+    ]
+  },
+  "ignorePatterns": ["build", "public", "node_modules", "coverage"]
 }

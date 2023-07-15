@@ -1,0 +1,18 @@
+import { render } from '@/utils/test-wrapper'
+
+import { RenderResult } from '@testing-library/react'
+import {{pascalCase name}} from './{{dashCase name}}'
+
+const renderComponent = (): RenderResult => {
+  return render(<{{pascalCase name}} />)
+}
+
+describe('{{pascalCase name}}', () => {
+  it('should render {{pascalCase name}}', () => {
+    const component = renderComponent()
+
+    const page = component.getByText('{{pascalCase name}}')
+
+    expect(page).toBeInTheDocument()
+  })
+})
