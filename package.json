@@ -11,7 +11,8 @@
     "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "test": "vitest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate": "plop --plopfile generators/plopfile.js",
   },
   "dependencies": {
     "@types/node": "20.4.2",
